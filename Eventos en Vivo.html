@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos en Vivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos del encabezado */
+        .navbar {
+            background-color: #2bc321;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white !important;
+            margin-right: 30px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+            .navbar-nav .nav-item {
+                margin-right: 15px;
+            }
+
+        .navbar-toggler {
+            border: none;
+            background-color: transparent;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .dropdown-menu {
+            background-color: #2bc321;
+            border-radius: 5px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #1a9d25;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #272727;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-top: 70px; /* Añadimos un espacio para el encabezado */
+        }
+
+        /* Estilo para el contenedor de los eventos */
+        .container {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1200px; /* Aumentamos el tamaño máximo del contenedor */
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            .container h1 {
+                margin-bottom: 20px;
+                color: #00ad42;
+            }
+
+        /* Estilo para el contenedor de eventos en vivo */
+        #live-events {
+            display: flex;
+            flex-wrap: nowrap; /* Asegura que los eventos estén en una sola fila */
+            overflow-x: auto; /* Permite desplazarse horizontalmente */
+            gap: 20px;
+            justify-content: flex-start;
+            margin-top: 20px; /* Añadimos espacio para separar el encabezado */
+        }
+
+        .event-live {
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            background-color: #2f2f2f;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px; /* Ancho fijo para cada evento */
+            flex-shrink: 0; /* Evita que los eventos se encojan */
+        }
+
+        .event-title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .event-time {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .live-badge {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .quota-buttons button {
+            background-color: #2bc321;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+            .quota-buttons button:hover {
+                background-color: #05ff58;
+            }
+
+        .quota-buttons input {
+            margin: 5px;
+        }
+
+        .quota-buttons label {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="T.html">Fundibet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-futbol"></i> Menú
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Apuestas</a></li>
+                            <li><a class="dropdown-item" href="#">Eventos</a></li>
+                            <li><a class="dropdown-item" href="configuracion.html">Configuración</a></li>
+                            <li><a class="dropdown-item" href="acercade.html">Acerca de</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Eventos en Vivo</h1>
+        <p class="text-center text-muted">Mantente al día con los eventos en curso</p>
+        <div id="live-events">
+            <!-- Los eventos en vivo se mostrarán aquí -->
+            <div class="event-live">
+                <div class="event-title">
+                    Partido de Fútbol: Barcelona vs Real Madrid
+                    <span class="live-badge">En Vivo</span>
+                </div>
+                <div class="event-time">En vivo: 25' del primer tiempo</div>
+                <div class="quota-buttons">
+                    <form action="#" method="post">
+                        <label for="quota1">Selecciona una cuota:</label><br>
+                        <input type="radio" id="quota1" name="quota" value="1.5">
+                        <label for="quota1">Cuota: 1.5</label><br>
+                        <input type="radio" id="quota2" name="quota" value="3.2">
+                        <label for="quota2">Cuota: 3.2</label><br>
+                        <input type="radio" id="quota3" name="quota" value="2.1">
+                        <label for="quota3">Cuota: 2.1</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="event-live">
+                <div class="event-title">
+                    Torneo de Tenis: Rafael Nadal vs Novak Djokovic
+                    <span class="live-badge">En Vivo</span>
+                </div>
+                <div class="event-time">En vivo: 2º set, 4-3</div>
+                <div class="quota-buttons">
+                    <form action="#" method="post">
+                        <label for="quota4">Selecciona una cuota:</label><br>
+                        <input type="radio" id="quota4" name="quota" value="1.8">
+                        <label for="quota4">Cuota: 1.8</label><br>
+                        <input type="radio" id="quota5" name="quota" value="2.5">
+                        <label for="quota5">Cuota: 2.5</label><br>
+                        <input type="radio" id="quota6" name="quota" value="1.9">
+                        <label for="quota6">Cuota: 1.9</label><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="event-live">
+                <div class="event-title">
+                    Carrera de Fórmula 1: Gran Premio de Mónaco
+                    <span class="live-badge">En Vivo</span>
+                </div>
+                <div class="event-time">En vivo: 15 vueltas completadas</div>
+                <div class="quota-buttons">
+                    <form action="#" method="post">
+                        <label for="quota7">Selecciona una cuota:</label><br>
+                        <input type="radio" id="quota7" name="quota" value="1.4">
+                        <label for="quota7">Cuota: 1.4</label><br>
+                        <input type="radio" id="quota8" name="quota" value="3.5">
+                        <label for="quota8">Cuota: 3.5</label><br>
+                        <input type="radio" id="quota9" name="quota" value="2.8">
+                        <label for="quota9">Cuota: 2.8</label><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

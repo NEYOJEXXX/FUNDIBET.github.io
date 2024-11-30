@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundibet - Acceso al Perfil</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1d1d1d;
+            color: white;
+            display: flex;
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: flex-start; /* Centra el contenido verticalmente */
+            min-height: 100vh;
+            margin: 0; /* Elimina los márgenes por defecto */
+            flex-direction: column; /* Asegura que el contenido fluya en una columna */
+        }
+
+        .header {
+            background-color: #222;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #00d500;
+        }
+
+        .header-options {
+            display: flex;
+            gap: 20px;
+        }
+
+            .header-options .button {
+                text-decoration: none;
+                color: #fff;
+                background-color: #00d500;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+            }
+
+                .header-options .button:hover {
+                    background-color: #00b300;
+                }
+
+            .header-options .button-yellow {
+                background-color: #f7d800;
+                color: #222;
+            }
+
+                .header-options .button-yellow:hover {
+                    background-color: #e6c700;
+                }
+
+        .banner {
+            background: linear-gradient(to right, #00b300, #007300);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .banner h1 {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            .banner p {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+        .sidebar {
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 900;
+        }
+
+            .sidebar ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                margin-top: 80px; /* Espaciado para evitar superposición con el encabezado */
+            }
+
+                .sidebar ul li {
+                    font-size: 18px;
+                    padding: 10px;
+                    border-bottom: 1px solid #444;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                    .sidebar ul li:hover {
+                        background-color: #00d500;
+                    }
+
+        .container-login {
+            background-color: #1c1c1c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 0 auto; /* Asegura que el formulario esté centrado */
+            margin-top: 80px; /* Asegura que no se superponga con la cabecera */
+        }
+
+            .container-login h1 {
+                margin-bottom: 20px;
+                color: #00ad42;
+            }
+
+            .container-login label {
+                font-size: 16px;
+                color: #ccc;
+                margin-bottom: 5px;
+            }
+
+            .container-login input {
+                padding: 10px;
+                margin-bottom: 15px;
+                background-color: #333;
+                border: 1px solid #444;
+                border-radius: 5px;
+                color: white;
+                font-size: 16px;
+            }
+
+                .container-login input:focus {
+                    outline: none;
+                    border-color: #00d500;
+                }
+
+            .container-login button {
+                background-color: #00d500;
+                border: none;
+                padding: 10px;
+                color: white;
+                font-size: 18px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .container-login button:hover {
+                    background-color: #00b300;
+                }
+
+        label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+            input[type="text"], input[type="password"] {
+                width: 95%;
+            }
+
+        button {
+            background-color: #00ad42;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background-color: #05ff58;
+            }
+
+        .register-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+            .register-link a {
+                color: #00ff40;
+                text-decoration: none;
+            }
+
+                .register-link a:hover {
+                    text-decoration: underline;
+                }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            background-color: #111111;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; /* Esto asegura que el footer esté al final de la página */
+            position: relative;
+            bottom: 0;
+        }
+
+            footer a {
+                color: #2bc321;
+                text-decoration: none;
+                margin: 0 10px;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <!-- Contenido principal -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Encabezado -->
+            <header class="header">
+                <div class="logo">Fundibet</div>
+                <div class="header-options">
+                    <a href="#" class="button">Apuestas</a>
+                    <a href="configuracion.html" class="button">Configuracion</a>
+                    <a href="registro.html" class="button">Registro</a>
+                    <a href="iniciodesesion.html" class="button button-yellow">Iniciar Sesión</a>
+                </div>
+            </header>
+            <!-- Sidebar -->
+            <aside class="col-md-3 sidebar">
+                <ul>
+                    <li>Ligas Principales</li>
+                    <li>Copa América</li>
+                    <li>Euro 2024</li>
+                    <li>UEFA Champions League</li>
+                    <li>NBA</li>
+                    <li>Otros</li>
+                </ul>
+            </aside>
+
+            <!-- Contenido principal -->
+            <div class="container-login">
+                <h1>Bienvenido a Fundibet</h1>
+                <p>Inicia sesión para acceder a tu perfil.</p>
+                <form action="perfil.html" method="post">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+
+                    <button type="submit">Entrar</button>
+                </form>
+                <div class="register-link">
+                    ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>© 2024 Fundibet</div>
+        <div>
+            <a href="quienessomos.html">¿Quiénes somos?</a> |
+            <a href="politicadeprivacidad.html">Política de privacidad</a> |
+            <a href="terminos.html">Términos y condiciones</a>
+        </div>
+    </footer>
+</body>
+</html>

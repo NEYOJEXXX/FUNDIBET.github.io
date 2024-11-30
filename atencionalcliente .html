@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atencion al cliente</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(48, 48, 48);
+        }
+        header {
+            background-color: rgb(31, 31, 31);
+            color: #ffffff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 0 15px;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgb(48, 48, 48);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #00ff55;
+        }
+        h2 {
+            color: #00ff62;
+        }
+        p {
+            color: #ffffff;
+        }
+        label {
+            color: aliceblue;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        input, textarea, button {
+            margin-top: 0.5rem;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 400px;
+        }
+        button {
+            background-color: #00ff62;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            box-shadow: none; /* Sin iluminación inicial */
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            box-shadow: 0 0 15px #49ff49, 0 0 25px #00ff62, 0 0 35px #00ad4e; /* Iluminación al pasar el cursor */
+            transform: scale(1.1); /* Incrementa ligeramente el tamaño */
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #292929;
+            color: #00ff62;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FUNDIBET</h1><br><br>
+        <h1>Atencion al cliente</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Contactanos</h2>
+            <form action="https://fundibet.com/enviar" method="post">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo Electronico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section>
+            <h2>Informacion de contacto</h2>
+            <p><strong>Correo Electronico:</strong> Soportebet@gmail.com</p>
+            <p><strong>Horario de atencion:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Fundibet. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
